@@ -41,11 +41,39 @@ final class Router {
         else if($url[1] == 'default')
         {
             self::redirectTo();
+            return NULL; //needed so phpstorm doesn't complain about missing return statement
         }
+        /* allow handler access without defined url */
         else if($url[1] == 'handler')
         {
-            // TODO: handle handlers, so we do not need to create urls for each used handler manually
+            $positionToCheck = 2;
+            $path = '';
+            while(isset($url[$positionToCheck]) && $url[$positionToCheck] != '')
+            {
+                if($path == '')
+                {
+                    $path = $url[$positionToCheck];
+                }
+                else
+                {
+                    $path = $path.'/'.$url[$positionToCheck];
+                }
+                $positionToCheck++;
+            }
+            $path = $path.'.php';
+            if(!file_exists($path))
+            {
+                return self::show404();
+            }
+            $data = array(
+                "path"=>$path,
+                "title"=>"",
+                "description"=>"",
+                "isHandler"=>true
+            );
+            return $data;
         }
+        /* get page data for normal urls */
         else
         {
             if (isset($pages[$url[1]]) && is_array($pages[$url[1]]))
