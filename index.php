@@ -14,6 +14,10 @@
 set_include_path(getcwd());
 
 use core\config\Loader as Config;
+use core\routing\Router as Router;
+
+Router::getPageData();
+
 
 /**
  * Autoloads necessary bricks

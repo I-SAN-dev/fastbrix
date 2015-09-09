@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Rewrite www to non-www - replace example.com by your domain
+RewriteCond %{HTTP_HOST} ^www.example.com$ [NC]
+RewriteRule ^(.*) http://example.com/$1 [L,R=301]
+
+# Route all non-file calls to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* /index.php
