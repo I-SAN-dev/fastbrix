@@ -1,0 +1,54 @@
+{
+  "name": "Fastbrix",
+  "baseurl": "http://dev.i-san.de",
+  "title": "%name% | %title%",
+  "description":"Dies ist eine globale Defaultbeschreibung",
+
+  "pages": {
+    "default": {
+      "path": "pages/home.php",
+      "title": "Willkommen",
+      "description": "%name% is a fast and modular bootstrap4 powered PHP-Framework with AJAX-Frontend."
+    },
+    "404": {
+      "path": "pages/404.php",
+      "title": "Seite nicht gefunden",
+      "description": "Die angeforderte Seite konnte leider nicht gefunden werden"
+    },
+    "test": {
+      "path":"pages/test.php",
+      "title":"Testseite",
+      "description":"Dies ist eine Testseite von %name%",
+      "pages": {
+        "testsub1": {
+          "path": "pages/test.php",
+          "title": "Testunterseite 1",
+          "description": "Dies ist eine Testseite von %name%",
+          "pages": {
+            "testsubsub":{
+              "path": "pages/test.php",
+              "title": "Testunterunterseite",
+              "description":"bla"
+            }
+          }
+        },
+        "testsub2":{
+          "path":"pages/test.php",
+          "title":"Testutnerseite 2",
+          "description":"bla",
+          "keepAdditionalPath":true
+        }
+      }
+    },
+    "impressum": {
+      "path": "pages/impressum.php",
+      "title": "Impressum",
+      "description": "Impressum für die Seite %url%"
+    },
+    "datenschutz": {
+      "path": "pages/datenschutz.php",
+      "title": "Datenschutz",
+      "description": "Datenschutzerklärung für die Seite %url%"
+    }
+  }
+}
