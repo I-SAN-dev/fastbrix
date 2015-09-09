@@ -13,6 +13,8 @@
 
 set_include_path(getcwd());
 
+use core\config\Loader as Config;
+
 /**
  * Autoloads necessary bricks
  * @param $class
