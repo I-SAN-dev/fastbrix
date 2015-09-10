@@ -23,8 +23,81 @@ final class JsRenderer {
      * @param $onLoad - function names that shall be called on load event
      * @param $path - path to file to write to
      */
-    public static function render($files, $onReady, $onLoad, $path)
+    public static function render(array $files, array $onReady, array $onLoad, $path)
     {
+        /* Header */
+        $content = '
+
+/*
+ * Generated with Fastbrix
+ * at '.date('d.m.Y H:i:s').'
+ */
+
+';
+
+        foreach($files as $file)
+        {
+            $content = $content.'
+
+/************************************************************
+ * Fastbrix: '.$file.'
+ */
+
+';
+            if(file_exists($file))
+            {
+                $content = $content.file_get_contents($file);
+            }
+            else
+            {
+                $content = $content."/* WARNING: File not found! */";
+            }
+        }
+
+        /* Create function calls */
+        $onReadyFunctions = implode("", array_map(function($val){return $val."(freshLoad);\n";}, $onReady));
+        $onLoadFunctions = implode("", array_map(function($val){return $val."(freshLoad);\n";}, $onLoad));
+
+        var_dump($onReadyFunctions);
+        $content=$content.'
+
+
+/************************************************************
+ * Fastbrix: Calls
+ */
+
+$(document).ready(function(){
+
+    var freshLoad = true;
+
+    '.$onReadyFunctions.'
+});
+
+$(window).load(function(){
+
+    var freshLoad = true;
+
+    '.$onLoadFunctions.'
+});
+
+function onFastbrixAjaxPageChange()
+{
+    var freshLoad = false;
+
+    /* on ready */
+    '.$onReadyFunctions.'
+    /* on load */
+    '.$onLoadFunctions.'
+}
+
+
+';
+
+        /* Write to file */
+        file_put_contents($path, $content);
+
+
+
 
     }
 

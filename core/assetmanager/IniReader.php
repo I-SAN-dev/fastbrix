@@ -47,13 +47,13 @@ class IniReader {
                 {
                     $this->js = $data['js']['file'];
                 }
-                if(isset($data['js']['jsOnReady']) && is_array($data['js']['jsOnReady']))
+                if(isset($data['js']['onReady']) && is_array($data['js']['onReady']))
                 {
-                    $this->jsOnReady = $data['js']['jsOnReady'];
+                    $this->jsOnReady = $data['js']['onReady'];
                 }
-                if(isset($data['js']['jsOnLoad']) && is_array($data['js']['jsOnLoad']))
+                if(isset($data['js']['onLoad']) && is_array($data['js']['onLoad']))
                 {
-                    $this->jsOnLoad = $data['js']['jsOnLoad'];
+                    $this->jsOnLoad = $data['js']['onLoad'];
                 }
             }
             /* core-brix */
