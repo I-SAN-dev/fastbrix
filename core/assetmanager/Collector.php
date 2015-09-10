@@ -21,8 +21,29 @@ final class Collector {
      */
     public static function getCssAndJs()
     {
-        $files = self::collectAllFiles();
-        var_dump($files);
+        $pathToCSS = "assets/styles.css";
+        $pathToJS = "assets/script.js";
+
+        $headers = getallheaders();
+        $forceRefresh = ($headers['Cache-Control'] == "no-cache" || $headers["Pragma"] == "no-cache" || isset($_GET['nocache']));
+
+        if(!file_exists($pathToCSS) || !file_exists($pathToJS)|| $forceRefresh)
+        {
+            $files = self::collectAllFiles();
+            if(!file_exists($pathToCSS) || $forceRefresh)
+            {
+                CssRenderer::render($files['scss'], $pathToCSS);
+            }
+            if(!file_exists($pathToJS) || $forceRefresh)
+            {
+                JsRenderer::render($files['js'], $files['jsOnReady'], $files['jsOnLoad'], $pathToJS);
+            }
+        }
+
+        return '
+            <link rel="stylesheet" type="text/css" href="'.$pathToCSS.'" />
+            <script src="'.$pathToJS.'" ></script>
+        ';
     }
 
     /**
