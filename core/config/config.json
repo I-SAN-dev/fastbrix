@@ -3,6 +3,7 @@
   "baseurl": "http://dev.i-san.de",
   "title": "%name% | %title%",
   "description":"Dies ist eine globale Defaultbeschreibung",
+  "debug":true,
 
   "pages": {
     "default": {
