@@ -15,8 +15,10 @@ set_include_path(getcwd());
 
 use core\config\Loader as Config;
 use core\routing\Router as Router;
+use core\assetmanager\Collector as AssetCollector;
 
-var_dump(Router::getPageData());
+/*var_dump(Router::getPageData());*/
+echo(AssetCollector::getCssAndJs());
 
 
 /**
