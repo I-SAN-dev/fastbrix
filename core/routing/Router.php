@@ -17,10 +17,24 @@ use core\config\Loader as Config;
 
 final class Router {
 
+    private static $pageData;
+
+    /**
+     * Returns a cached array of page info which is needed to render the page
+     */
+    public static function getPageData()
+    {
+        if(!isset(self::$pageData))
+        {
+            self::$pageData = self::collectPageData();
+        }
+        return self::$pageData;
+    }
+
     /**
      * Returns an array of page info which is needed to render the page
      */
-    public static function getPageData()
+    private static function collectPageData()
     {
         $conf = Config::get();
         $pages = $conf['pages'];

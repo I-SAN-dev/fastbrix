@@ -1,0 +1,42 @@
+    <title><?= $title ?></title>
+    <meta name="description" content="<?= $description ?>">
+<?php if($author): ?>
+    <meta name="author" content="<?= $author ?>">
+<?php endif; ?>
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="<?= $title ?>">
+    <meta itemprop="description" content="<?= $description ?>">
+<?php if($banner['src']): ?>
+    <meta itemprop="image" content="<?= $banner["src"] ?>">
+<?php endif; ?>
+
+<?php if($gpluslink['author']): ?>
+    <link href="<?= $gpluslink["author"] ?>" rel="author" />
+<?php endif; ?>
+<?php if($gpluslink['publisher']): ?>
+    <link href="<?= $gpluslink["publisher"] ?>" rel="publisher" />
+<?php endif; ?>
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?= $title ?>">
+    <meta name="twitter:description" content="<?= $description ?>">
+<?php if($banner['src']): ?>
+    <!-- Twitter summary card with large image must be at least 280x150px -->
+    <meta name="twitter:image:src" content="<?= $banner["src"] ?>">
+<?php endif; ?>
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="<?= $title ?>" />
+    <meta property="og:type" content="<?= $type ?>" />
+<?php if($banner['src']): ?>
+    <meta property="og:image" content="<?= $banner["src"] ?>" />
+    <meta property="og:image:width" content="<?= $banner["width"] ?>" />
+    <meta property="og:image:height" content="<?= $banner["height"] ?>" />
+<?php endif; ?>
+    <meta property="og:description" content="<?= $description ?>" />
+    <meta property="og:site_name" content="<?= $sitename ?>" />
+<?php if($fbadmins): ?>
+    <meta property="fb:admins" content="<?= $fbadmins ?>" />
+<?php endif; ?>

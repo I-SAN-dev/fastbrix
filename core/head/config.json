@@ -1,0 +1,19 @@
+{
+  "author":"Max Mustermann",
+  "color":"#940011",
+  "apple-status-bar-style":"black",
+  "social":{
+    "type":"article",
+    "banner":{
+      "src":"http://sebastian-antosch.de/socialbanner.png",
+      "width":1200,
+      "height":630
+    },
+    "gpluslink":
+    {
+      "author":"https://plus.google.com/103387866507227227786",
+      "publisher":"https://plus.google.com/103387866507227227786"
+    },
+    "facebookAdmins":"100001049514269"
+  }
+}

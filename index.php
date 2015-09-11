@@ -16,6 +16,8 @@ set_include_path(getcwd());
 use core\config\Loader as Config;
 use core\routing\Router as Router;
 use core\assetmanager\Collector as AssetCollector;
+use core\head\Metadata as Metadata;
+use core\head\Icons as Icons;
 
 /* This block must come first! */
 /**
@@ -36,3 +38,5 @@ spl_autoload_register('defaultAutoload');
 
 /*var_dump(Router::getPageData());*/
 echo(AssetCollector::getCssAndJs());
+echo("\n".Metadata::get());
+echo("\n".Icons::get());
