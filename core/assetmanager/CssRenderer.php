@@ -22,6 +22,35 @@ final class CssRenderer {
      */
     public static function render($files, $path)
     {
+        $scss = self::buildScss($files);
+        require_once('scssphp/scss.inc.php');
+        $scssc = new \scssc();
+        $css = $scssc->compile($scss);
+        $dir = dirname($path);
+        if(!file_exists($dir))
+        {
+            mkdir($dir, 0777, true);
+        }
+        file_put_contents($path, $css);
+    }
+
+
+    /**
+     * Create valid scss code to import all necessary files
+     * @param $files - array of paths to scss files
+     * @return string - the scss code
+     */
+    private static function buildScss($files)
+    {
+        $content = '';
+        foreach ($files as $path)
+        {
+            $path = str_replace('.scss','', $path);
+            $content = $content.'
+@import "'.$path.'";
+            ';
+        }
+        return $content;
 
     }
 

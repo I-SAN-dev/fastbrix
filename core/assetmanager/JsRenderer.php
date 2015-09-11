@@ -93,6 +93,11 @@ function onFastbrixAjaxPageChange()
 
 ';
         /* Write to file */
+        $dir = dirname($path);
+        if(!file_exists($dir))
+        {
+            mkdir($dir, 0777, true);
+        }
         file_put_contents($path, $content);
 
     }

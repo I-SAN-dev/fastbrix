@@ -21,8 +21,8 @@ final class Collector {
      */
     public static function getCssAndJs()
     {
-        $pathToCSS = "assets/styles.css";
-        $pathToJS = "assets/script.js";
+        $pathToCSS = "assets/css/styles.css";
+        $pathToJS = "assets/js/script.js";
 
         $headers = getallheaders();
         $forceRefresh = ($headers['Cache-Control'] == "no-cache" || $headers["Pragma"] == "no-cache" || isset($_GET['nocache']));
