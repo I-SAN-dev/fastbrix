@@ -92,12 +92,8 @@ function onFastbrixAjaxPageChange()
 
 
 ';
-
         /* Write to file */
         file_put_contents($path, $content);
-
-
-
 
     }
 
