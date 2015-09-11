@@ -26,7 +26,6 @@ final class Collector {
 
         $headers = getallheaders();
         $forceRefresh = ($headers['Cache-Control'] == "no-cache" || $headers["Pragma"] == "no-cache" || isset($_GET['nocache']));
-
         if(!file_exists($pathToCSS) || !file_exists($pathToJS)|| $forceRefresh)
         {
             $files = self::collectAllFiles();

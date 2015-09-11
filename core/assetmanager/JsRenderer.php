@@ -58,7 +58,6 @@ final class JsRenderer {
         $onReadyFunctions = implode("", array_map(function($val){return $val."(freshLoad);\n";}, $onReady));
         $onLoadFunctions = implode("", array_map(function($val){return $val."(freshLoad);\n";}, $onLoad));
 
-        var_dump($onReadyFunctions);
         $content=$content.'
 
 
