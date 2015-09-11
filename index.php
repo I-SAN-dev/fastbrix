@@ -17,16 +17,13 @@ use core\config\Loader as Config;
 use core\routing\Router as Router;
 use core\assetmanager\Collector as AssetCollector;
 
-/*var_dump(Router::getPageData());*/
-echo(AssetCollector::getCssAndJs());
-
-
+/* This block must come first! */
 /**
  * Autoloads necessary bricks
  * @param $class
  * @throws Exception
  */
-function __autoload($class)
+function defaultAutoload($class)
 {
     //load file from namespace
     $class = str_replace('\\','/', $class).'.php';
@@ -34,8 +31,8 @@ function __autoload($class)
     {
         require_once($class);
     }
-    else
-    {
-        throw new Exception("File ".$class." could not be found!", 404);
-    }
 }
+spl_autoload_register('defaultAutoload');
+
+/*var_dump(Router::getPageData());*/
+echo(AssetCollector::getCssAndJs());
