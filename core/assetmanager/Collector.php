@@ -40,8 +40,8 @@ final class Collector {
         }
 
         return '
-            <link rel="stylesheet" type="text/css" href="'.$pathToCSS.'" />
-            <script src="'.$pathToJS.'" ></script>
+            <link rel="stylesheet" type="text/css" href="/'.$pathToCSS.'" />
+            <script src="/'.$pathToJS.'" ></script>
         ';
     }
 
