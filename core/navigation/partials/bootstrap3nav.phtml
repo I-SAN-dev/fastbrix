@@ -1,0 +1,47 @@
+<ul class="<?= $class ?>">
+    <?php if($menu): ?>
+        <?php $count=1; ?>
+        <?php foreach($menu as $item):?>
+
+            <?php if($item['link'] && $item['sub'] && count($item['sub'])): ?>
+
+                <?php // Item with link and caret with dropdown ?>
+
+            <?php elseif($item['sub'] && count($item['sub'])): ?>
+
+                <?php // Item with dropdown ?>
+
+            <?php elseif($item['link']): ?>
+
+                <?php // Item without dropdown ?>
+                <li class="menu-<?=$menukey ?>-item-<?= $count; ?>">
+                    <a  class="ajax"
+                        href="<?= $item['link'];?>"
+                         <?php if($item['target']):?>target="<?= $item['target']?>"<? endif; ?>
+                        <?php if($item['title']):?>title="<?= $item['title']?>"<? endif; ?>
+                    >
+                        <?= $item['name'] ?>
+                    </a>
+                </li>
+
+            <?php else: ?>
+
+                <?php // disabled item ?>
+                <li class="disabled menu-<?=$menukey ?>-item-<?= $count; ?>">
+                    <a
+                        <?php if($item['title']):?>title="<?= $item['title']?>"<? endif; ?>
+                        >
+                        <?= $item['name'] ?>
+                    </a>
+                </li>
+
+            <?php endif; ?>
+
+        <?php $count++; ?>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <li class="bg-danger">
+            <a>Menu "<?= $menukey ?>" not found!</a>
+        </li>
+    <?php endif; ?>
+</ul>

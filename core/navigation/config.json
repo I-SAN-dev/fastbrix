@@ -1,0 +1,43 @@
+{
+  "main":[
+    {
+      "name": "Home",
+      "link":"/"
+    },
+    {
+      "name": "Test",
+      "link": "test",
+      "sub":[
+        {
+          "name": "Unterseite",
+          "link": "testsub1"
+        },
+        {
+          "name": "Unterseite 2",
+          "link": "testsub2"
+        }
+      ]
+    },
+    {
+      "name": "Google",
+      "title": "Google ist dein Freund!",
+      "link": "http://google.de",
+      "target": "_blank"
+    },
+    {
+      "name": "Disabled",
+      "title": "Coming soon"
+    }
+  ],
+
+  "bottom": [
+    {
+      "name": "Impressum",
+      "link": "impressum"
+    },
+    {
+      "name": "Datenschutz",
+      "link": "datenschutz"
+    }
+  ]
+}
