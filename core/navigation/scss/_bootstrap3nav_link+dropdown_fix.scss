@@ -1,0 +1,36 @@
+ul.nav
+{
+  li.link-and-dropdown
+  {
+    a
+    {
+      display: inline-block;
+
+      &.menu-dropdown
+      {
+        padding-left: 0;
+      }
+    }
+  }
+}
+@media (max-width: $screen-xs-max)
+{
+  ul.nav
+  {
+    li.link-and-dropdown
+    {
+      a
+      {
+        &.menu-link
+        {
+          width: calc(100% - 30px);
+        }
+
+        &.menu-dropdown
+        {
+          width: 30px;
+        }
+      }
+    }
+  }
+}

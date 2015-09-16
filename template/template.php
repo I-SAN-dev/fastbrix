@@ -41,7 +41,7 @@ $conf = Config::get();
                     <a class="navbar-brand ajax" href="/"><?php echo $conf['name'] ?></a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
-                    <?php echo Menu::get('main', 'nav navbar-nav'); ?>
+                    <?php echo Menu::get('main', 'navbar-nav'); ?>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>

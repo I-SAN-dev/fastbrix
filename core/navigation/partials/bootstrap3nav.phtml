@@ -1,4 +1,4 @@
-<ul class="<?= $class ?>">
+<ul class="nav <?= $class ?> menu-<?= $menukey ?>">
     <?php if($menu): ?>
         <?php $count=1; ?>
         <?php foreach($menu as $item):?>
@@ -6,15 +6,47 @@
             <?php if($item['link'] && $item['sub'] && count($item['sub'])): ?>
 
                 <?php // Item with link and caret with dropdown ?>
+                <li class="menu-<?=$menukey ?>-item-<?= $count; ?> dropdown link-and-dropdown">
+
+                    <a  class="ajax menu-link"
+                        href="<?= $item['link'];?>"
+                        <?php if($item['target']):?>target="<?= $item['target']?>"<? endif; ?>
+                        <?php if($item['title']):?>title="<?= $item['title']?>"<? endif; ?>
+                        >
+                        <?= $item['name'] ?>
+                    </a><a  class="dropdown-toggle menu-dropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                        <?php if($item['title']):?>title="<?= $item['title']?>"<? endif; ?>
+                        >
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>test</li>
+                    </ul>
+                </li>
 
             <?php elseif($item['sub'] && count($item['sub'])): ?>
 
                 <?php // Item with dropdown ?>
+                <li class="menu-<?=$menukey ?>-item-<?= $count; ?> dropdown">
+
+                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                        <?php if($item['title']):?>title="<?= $item['title']?>"<? endif; ?>
+                        >
+                        <?= $item['name'] ?>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>test</li>
+                    </ul>
+
+                </li>
 
             <?php elseif($item['link']): ?>
 
                 <?php // Item without dropdown ?>
                 <li class="menu-<?=$menukey ?>-item-<?= $count; ?>">
+
                     <a  class="ajax"
                         href="<?= $item['link'];?>"
                          <?php if($item['target']):?>target="<?= $item['target']?>"<? endif; ?>
@@ -22,17 +54,20 @@
                     >
                         <?= $item['name'] ?>
                     </a>
+
                 </li>
 
             <?php else: ?>
 
                 <?php // disabled item ?>
                 <li class="disabled menu-<?=$menukey ?>-item-<?= $count; ?>">
+
                     <a
                         <?php if($item['title']):?>title="<?= $item['title']?>"<? endif; ?>
                         >
                         <?= $item['name'] ?>
                     </a>
+
                 </li>
 
             <?php endif; ?>
