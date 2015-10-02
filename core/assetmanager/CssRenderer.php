@@ -45,7 +45,15 @@ final class CssRenderer {
 
         $scss = self::buildScss($files);
         $scssc = new \Leafo\ScssPhp\Compiler();
-        $css = $scssc->compile($scss);
+        try
+        {
+            $css = $scssc->compile($scss);
+        }
+        catch(Exception $e)
+        {
+            echo($e->getMessage());
+        }
+
 
         /* Header */
         $content = '
