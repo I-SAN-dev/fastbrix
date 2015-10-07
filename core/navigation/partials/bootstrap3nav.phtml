@@ -3,12 +3,15 @@
         <?php $count=1; ?>
         <?php foreach($menu as $item):?>
 
+            <?php $ajax = ((substr($item['link'], 0, 7) == 'http://') || (substr($item['link'], 0, 8) == 'https://')) ? '' : 'ajax'?>
+
+
             <?php if($item['link'] && $item['sub'] && count($item['sub'])): ?>
 
                 <?php // Item with link and caret with dropdown ?>
                 <li class="menu-<?=$menukey ?>-item-<?= $count; ?> dropdown link-and-dropdown">
 
-                    <a  class="ajax menu-link"
+                    <a  class="<?= $ajax ?> menu-link"
                         href="<?= $item['link'];?>"
                         <?php if($item['target']):?>target="<?= $item['target']?>"<? endif; ?>
                         <?php if($item['title']):?>title="<?= $item['title']?>"<? endif; ?>
@@ -23,15 +26,16 @@
                     <ul class="dropdown-menu">
                         <?php foreach($item['sub'] as $sub):?>
 
-                        <li>
-                            <a  class="ajax menu-link"
-                                href="<?= $sub['link'];?>"
-                                <?php if($sub['target']):?>target="<?= $sub['target']?>"<? endif; ?>
-                                <?php if($sub['title']):?>title="<?= $sub['title']?>"<? endif; ?>
-                                >
-                                <?= $sub['name'] ?>
-                            </a>
-                        </li>
+                            <?php $ajax2 = ((substr($sub['link'], 0, 7) == 'http://') || (substr($sub['link'], 0, 8) == 'https://')) ? '' : 'ajax'?>
+                            <li>
+                                <a  class="<?= $ajax2 ?> menu-link"
+                                    href="<?= $sub['link'];?>"
+                                    <?php if($sub['target']):?>target="<?= $sub['target']?>"<? endif; ?>
+                                    <?php if($sub['title']):?>title="<?= $sub['title']?>"<? endif; ?>
+                                    >
+                                    <?= $sub['name'] ?>
+                                </a>
+                            </li>
 
                         <?php endforeach; ?>
                     </ul>
@@ -51,8 +55,9 @@
                     <ul class="dropdown-menu">
                         <?php foreach($item['sub'] as $sub):?>
 
+                            <?php $ajax2 = ((substr($sub['link'], 0, 7) == 'http://') || (substr($sub['link'], 0, 8) == 'https://')) ? '' : 'ajax'?>
                             <li>
-                                <a  class="ajax menu-link"
+                                <a  class="<?= $ajax2 ?> menu-link"
                                     href="<?= $sub['link'];?>"
                                     <?php if($sub['target']):?>target="<?= $sub['target']?>"<? endif; ?>
                                     <?php if($sub['title']):?>title="<?= $sub['title']?>"<? endif; ?>
@@ -71,7 +76,7 @@
                 <?php // Item without dropdown ?>
                 <li class="menu-<?=$menukey ?>-item-<?= $count; ?>">
 
-                    <a  class="ajax"
+                    <a  class="<?= $ajax ?>"
                         href="<?= $item['link'];?>"
                          <?php if($item['target']):?>target="<?= $item['target']?>"<? endif; ?>
                         <?php if($item['title']):?>title="<?= $item['title']?>"<? endif; ?>

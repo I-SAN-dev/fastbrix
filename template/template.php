@@ -52,6 +52,14 @@ $conf = Config::get();
         </div>
 
 
+        <div class="container">
+            <div class="navbar navbar-default">
+                <?php echo Menu::get('bottom', 'navbar-nav'); ?>
+            </div>
+        </div>
+
+
+
 
     </body>
 </html>

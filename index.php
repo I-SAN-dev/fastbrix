@@ -42,7 +42,7 @@ spl_autoload_register('defaultAutoload');
  */
 function sendPage($maincontent)
 {
-    $maincontent = '<div id="fastbrixMaincontent">'."\n".$maincontent."\n".'</div>'."\n";
+    $maincontent = '<div id="fastbrixMaincontent"><div id="fastbrixLoading" style="display: none;"><img src="/assets/images/ajax-loader.gif" alt="loading" /></div>'."\n".'<div id="fastbrixContent">'.$maincontent.'</div>'."\n".'</div>'."\n";
     $metadata = Metadata::get();
     $scriptsstyles = AssetCollector::getCssAndJs();
     $icons = Icons::get();
