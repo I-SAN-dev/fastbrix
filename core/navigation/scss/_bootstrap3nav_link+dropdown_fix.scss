@@ -2,7 +2,7 @@ ul.nav
 {
   li.link-and-dropdown
   {
-    a
+    >a
     {
       display: inline-block;
 
@@ -19,7 +19,7 @@ ul.nav
   {
     li.link-and-dropdown
     {
-      a
+      >a
       {
         &.menu-link
         {

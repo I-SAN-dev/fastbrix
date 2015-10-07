@@ -6,15 +6,15 @@
     },
     {
       "name": "Test",
-      "link": "test",
+      "link": "/test",
       "sub":[
         {
           "name": "Unterseite",
-          "link": "testsub1"
+          "link": "/test/testsub1"
         },
         {
           "name": "Unterseite 2",
-          "link": "testsub2"
+          "link": "/test/testsub2"
         }
       ]
     },
@@ -33,11 +33,11 @@
   "bottom": [
     {
       "name": "Impressum",
-      "link": "impressum"
+      "link": "/impressum"
     },
     {
       "name": "Datenschutz",
-      "link": "datenschutz"
+      "link": "/datenschutz"
     }
   ]
 }
